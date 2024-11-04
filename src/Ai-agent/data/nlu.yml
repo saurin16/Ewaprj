@@ -1,0 +1,19 @@
+version: "3.1"
+nlu:
+  - intent: greet
+    examples: |
+      - Hi
+      - Hello
+      - Hey there
+
+  - intent: provide_name
+    examples: |
+      - My name is [John](name)
+      - I am [Alice](name)
+      - You can call me [Bob](name)
+
+  - intent: ask_for_product_recommendation
+    examples: |
+      - Can you recommend some investment products?
+      - What investment plans should I choose?
+      - Suggest me an investment plan based on my savings.

@@ -1,0 +1,14 @@
+version: "3.1"
+stories:
+  - story: greet and fetch user details
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - action: utter_ask_name
+      - intent: provide_name
+      - action: action_fetch_user_data
+
+  - story: recommend products based on savings
+    steps:
+      - intent: ask_for_product_recommendation
+      - action: action_recommend_products

@@ -1,0 +1,53 @@
+version: "3.1"
+
+intents:
+  - greet
+  - provide_name
+  - ask_for_financial_recommendation
+
+slots:
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: name
+
+  income:
+    type: float
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: income
+
+  savings:
+    type: float
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: savings
+
+entities:
+  - name
+  - income
+  - savings
+
+responses:
+  utter_greet:
+    - text: "Hi! What is your name?"
+
+  utter_ask_name:
+    - text: "What is your name?"
+
+  utter_user_details:
+    - text: "Your details: Name: {name}, Income: {income}, Savings: {savings}"
+
+  utter_recommend_low_risk:
+    - text: "Based on your savings of {savings}, I recommend the Low Risk Investment Plan. You can find more details on the product page."
+
+  utter_recommend_high_risk:
+    - text: "Based on your savings of {savings}, I recommend the High Risk Investment Plan. You can find more details on the product page."
+
+actions:
+  - action_fetch_user_data
+  - action_recommend_products
